@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
         document.querySelector('#chns').onclick=(e)=>{
             selchn=e.target.id;
-            document.querySelector('#msgchn').innerHTML=selchn;
-            localStorage.setItem('selchn', selchn);
+            document.querySelector('#msgchn').innerHTML= "Вибрано: " + selchn;
+            localStorage.setItem('selchn',selchn);
             socket.emit('submit lichn', {'chn': selchn});
         };
 
@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
             }
             else {
                 localStorage.setItem('users', JSON.stringify(data[1]['users']));
+                localStorage.setItem('chanels', JSON.stringify(data[1]['chanels']));
                 filluppage();
             };
         });
